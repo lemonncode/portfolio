@@ -1,5 +1,5 @@
 <template>
-  <div class="h-96 w-96 border-solid border-2">
+  <div v-for="project in projects" :key="project.title">
     <div
       class="
         bg-neutral-100
@@ -12,7 +12,7 @@
       "
     >
       <div>
-        <img class="rounded-t-lg drop-shadow-xl" :src="image" />
+        <img class="rounded-t-lg drop-shadow-xl" :src="project.image" />
       </div>
       <div class="bg-pink-200 mx-4 h-12 p-4">
         <h1
@@ -27,7 +27,7 @@
             decoration-pink-500/30
           "
         >
-          Titulo: {{ title }}
+          Titulo: {{ project.title }}
         </h1>
       </div>
       <div class="bg-pink-200 m-4 h-12 p-4">
@@ -36,14 +36,14 @@
             place-self-center
             m-auto
             font-mono
-            text-sm
+            text-xs
             font-medium
             tracking-widest
             text-slate-700
             decoration-pink-500/30
           "
         >
-          Descripción: {{ description }}
+          Descripción: {{ project.description }}
         </p>
       </div>
     </div>
@@ -52,20 +52,27 @@
 
 <script>
 export default {
-  name: "CardProject",
-  props: ["title", "description", "image"],
   data() {
     return {
-      /*"
-       
-        https://i.picsum.photos/id/25/5000/3333.jpg?hmac=yCz9LeSs-i72Ru0YvvpsoECnCTxZjzGde805gWrAHkM
-      
-
-       */
+      projects: [
+        {
+          title: "Asia 2",
+          description: "HONG KONG EN BLANCO Y NEGRO",
+          image: "src/img/flowers.jpg",
+        },
+        {
+          title: "Asia",
+          description: "Hong Kong en 10 palabras – parte I",
+          image: "src/img/lotus.jpg",
+        },
+        {
+          title: "Viajando",
+          description: "Vietnam: amor a primera vista",
+          image: "src/img/pink.jpg",
+        },
+      ],
     };
   },
-
-  methods: {},
 };
 </script>
 

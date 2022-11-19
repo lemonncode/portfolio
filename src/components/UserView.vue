@@ -1,39 +1,62 @@
 <template>
   <div>
-    <div>User View</div>
-    <div>Project Destacat</div>
-    <div class="bg-pink-300 h-96 w-96 border-solid border-2">
-      <h1>Titulo:</h1>
-      <p>Descripción:</p>
-      <img src="../img/flowers.jpg" />
+    <div class="bg-neutral-200 flex h-full">
+      <h1
+        class="
+          place-self-center
+          m-auto
+          font-mono
+          text-6xl
+          font-medium
+          tracking-widest
+          text-zinc-500
+          decoration-pink-500/30
+          mt-10
+        "
+      >
+        Portfolio
+      </h1>
+      
     </div>
 
-    <div class="bg-pink-200 grid grid-cols-3 gap-20 p-12">
-      <div class="bg-pink-300 h-96 w-96 border-solid border-2">
-        <h1>Titulo:</h1>
-        <p>Descripción:</p>
-        <img src="../img/lotus.jpg" />
-      </div>
-      <div class="bg-pink-300 h-96 w-96 border-solid border-2">
-        <h1>Titulo:</h1>
-        <p>Descripción:</p>
-        <img src="../img/pink.jpg" />
-      </div>
-      <div class="bg-pink-300 h-96 w-96 border-solid border-2">
-        <h1>Titulo:</h1>
-        <p>Descripción:</p>
-        <img
-          src="https://i.picsum.photos/id/15/300/200.jpg?hmac=tdFVEjwaSUhS6YpVET5TTcnfCqQ1rVHeTAF2g7xWxVU"
-        />
-      </div>
+    <div
+      class="
+        bg-neutral-200
+        grid grid-cols-1
+        place-items-center
+        md:grid-cols-2
+        lg:grid-cols-2
+        xl:grid-cols-3
+        gap-24
+        lg:gap-10
+        p-12
+        
+      "
+      @click="showDetails"
+    >
+     
+        <project></project>
+    
     </div>
   </div>
 </template>
 
 <script>
+import Project from "./Project.vue";
 export default {
+  components: { Project },
   name: "UserView",
-  
+  data() {
+    return {
+      project: [
+        {
+          title: "",
+          description: "",
+          image: '',
+        },
+      ],
+    };
+  },
 };
 </script>
 
